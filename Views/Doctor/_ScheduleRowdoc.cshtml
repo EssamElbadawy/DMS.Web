@@ -1,0 +1,24 @@
+﻿@if (Model.DateSlot == DateTime.Now.Date)
+{
+    <tr>
+        <td>@Model.Patient.Name</td>
+        <td>@Model.Patient.BirthDate.ToString("MM/dd/yyyy")</td>
+        <td>@Model.TimeSlot</td>
+        <td>@Model.Patient.PhoneNumber</td>
+        <td class="js-updated-on">@Model.Doctor.Name</td>
+        <td>@Html.Raw(Model.Description)</td>
+        <td>
+            <span class="badge badge-light-@(Model.IsDeleted ? "danger" : "success") js-status">
+                @(Model.IsDeleted ? "Canceled" : "Available")
+            </span>
+        </td>
+    </tr>
+
+}
+
+else
+{
+
+}
+
+

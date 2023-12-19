@@ -1,0 +1,47 @@
+﻿@using DMS.Web.Core.ViewModel
+@model IEnumerable<UserViewModel>
+ 
+@{
+    ViewData["Title"] = "Users";
+}
+@section Styles
+{
+    <link rel="stylesheet" href="~/assets/plugins/datatables/datatables.bundle.css" />
+}
+<div class="card shadow-sm">
+    <partial name="_DataTablesCardHeader" />
+    <div class="card-body pt-0">
+        <div class="table-responsive">
+            <table class="table table-row-dashed table-row-gray-300 gy-2 align-middle js-datatables" > 
+                <thead>
+
+                    <tr class="fw-bold fs-6 text-gray-800">
+                        <th>Full Name</th>
+                        <th>User Name</th>
+                        <th>Email</th>
+                        <th>Status</th>
+                        <th>Created On</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var user in Model)
+                    {
+                        
+                        <partial name="_UserRowIdentity" model="@user" />
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+ 
+@section Plugins
+{
+    <script src="~/assets/plugins/datatables/datatables.bundle.js"></script>
+}
+
+@section Scripts
+{
+    <partial name="_ValidationScriptsPartial" />
+}

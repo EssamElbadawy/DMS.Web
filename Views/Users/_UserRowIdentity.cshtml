@@ -1,0 +1,15 @@
+﻿ 
+
+<tr> 
+    <td>@Model.FullName</td>
+    <td>@Model.Username</td>
+    <td>@Model.Email</td>
+    <td>
+        <span class="badge badge-light-@(Model.IsDeleted ? "danger" : "success") js-status">
+            @(Model.IsDeleted ? "Deleted" : "Available")
+        </span>
+    </td>
+    <td>@Model.CreatedOn.ToString("dd MM yyyy ")</td>
+    @* <td class="js-updated-on">@Model.LastUpdatedOn</td> *@
+
+</tr>

@@ -1,0 +1,52 @@
+{
+  "version": "1.0",
+  "defaultProvider": "cdnjs",
+  "libraries": [
+    {
+      "library": "bootstrap@5.2.0",
+      "destination": "wwwroot/lib/bootstrap/",
+      "files": [
+        "js/bootstrap.min.js",
+        "css/bootstrap.css",
+        "css/bootstrap.css.map",
+        "css/bootstrap.min.css",
+        "css/bootstrap.min.css.map",
+        "js/bootstrap.bundle.js",
+        "js/bootstrap.bundle.js.map",
+        "js/bootstrap.bundle.min.js",
+        "js/bootstrap.bundle.min.js.map",
+        "js/bootstrap.min.js.map",
+        "js/bootstrap.js.map",
+        "js/bootstrap.js"
+      ]
+    },
+    {
+      "library": "datatables@1.10.21",
+      "destination": "wwwroot/lib/datatables/"
+    },
+    {
+      "library": "flatpickr@4.6.13",
+      "destination": "wwwroot/lib/flatpickr/",
+      "files": [
+        "flatpickr.min.js",
+        "flatpickr.min.css",
+        "themes/airbnb.css",
+        "themes/airbnb.min.css",
+        "themes/confetti.css",
+        "themes/confetti.min.css",
+        "themes/dark.css",
+        "themes/dark.min.css",
+        "themes/light.css",
+        "themes/light.min.css",
+        "themes/material_blue.css",
+        "themes/material_blue.min.css",
+        "themes/material_green.css",
+        "themes/material_green.min.css",
+        "themes/material_orange.css",
+        "themes/material_orange.min.css",
+        "themes/material_red.css",
+        "themes/material_red.min.css"
+      ]
+    }
+  ]
+}

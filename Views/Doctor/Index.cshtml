@@ -1,0 +1,65 @@
+﻿@model IEnumerable<ScheduleViewModel>
+@{
+    ViewData["Title"] = "Doctor";
+}
+<h2>Doctor Appointments</h2>
+
+@section Styles
+{
+    <link href="~/assets/plugins/datatables/datatables.bundle.css" rel="stylesheet" />
+}
+
+@using (Html.BeginForm("Appointments", "Doctor", FormMethod.Get))
+{
+    <div class="form-group col-4  ">
+        <label for="fromDate">From Date:</label>
+        @Html.TextBox("fromDate", ViewBag.FromDate as DateTime?, new { @class = "form-control js-flatpickr2 mb-5 ", type = "date", id = "DateFrom" })
+    </div>
+
+    <div class="form-group col-4 ">
+        <label for="toDate ">To Date:</label>
+        @Html.TextBox("toDate", ViewBag.ToDate as DateTime?, new { @class = "form-control js-flatpickr2 ", type = "date", id = "DateTo" })
+    </div>
+    <br />
+    <button type="submit" class="btn btn-primary">Filter Appointments</button>
+}
+
+
+<br />
+<div class="card shadow-sm">
+    <partial name="_DataTablesCardHeader" />
+    <div class="card-body pt-0">
+        <div class="table-responsive">
+            <table class="table table-row-dashed table-row-gray-300 gy-2 align-middle js-datatables" data-document-title="Schedule">
+                <thead>
+                    <tr class="fw-bold fs-6 text-gray-800">
+                        <th>@Html.DisplayNameFor(e => e.Patient!.Name)</th>
+                        <th>@Html.DisplayNameFor(e => e.Patient!.BirthDate)</th>
+                        <th>@Html.DisplayNameFor(e => e.TimeSlot)</th>
+                        <th>@Html.DisplayNameFor(e => e.Patient!.PhoneNumber)</th>
+                        <th>@Html.DisplayNameFor(e => e.Doctor!.Name)</th>
+                        <th>@Html.DisplayNameFor(e => e.Description)</th>
+                        <th>@Html.DisplayNameFor(e => e.IsDeleted)</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var schedule in Model)
+                    {
+                        <partial name="_ScheduleRowdoc" model="@schedule" />
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+
+@section Plugins
+{
+    <script src="~/assets/plugins/datatables/datatables.bundle.js"></script>
+}
+
+@section Scripts
+{
+    <partial name="_ValidationScriptsPartial" />
+}

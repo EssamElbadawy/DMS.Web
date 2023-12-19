@@ -1,0 +1,29 @@
+﻿global using AutoMapper;
+global using Clinic.Core.Consts;
+global using Clinic.Core.Mapping;
+global using Clinic.Core.Models;
+global using Clinic.Core.ViewModel;
+global using Clinic.Web.Data;
+global using DMS.Web.Core.Consts;
+global using DMS.Web.Repositories;
+global using DMS.Web.Repositories.Interfaces;
+global using Microsoft.AspNetCore.Identity;
+global using Microsoft.AspNetCore.Mvc;
+global using Microsoft.AspNetCore.Mvc.Rendering;
+global using Microsoft.EntityFrameworkCore;
+global using Microsoft.EntityFrameworkCore.Metadata.Internal;
+global using System.Collections.Generic;
+global using System.ComponentModel.DataAnnotations;
+global using System.Diagnostics;
+global using System.Reflection;
+global using UoN.ExpressiveAnnotations.NetCore.Attributes;
+global using UoN.ExpressiveAnnotations.NetCore.DependencyInjection;
+global using System.Linq.Expressions;
+global using Microsoft.AspNetCore.Authorization;
+global using Microsoft.AspNetCore.Http;
+global using System.Globalization;
+global using Microsoft.AspNetCore.Mvc.ModelBinding.Validation;
+global using DMS.Web.Data;
+global using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
+
+

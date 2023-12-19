@@ -1,0 +1,112 @@
+﻿@model ScheduleViewModel
+@{
+    ViewData["Title"] = "appointment Form";
+}
+<div class="card shadow-sm">
+    <div class="card-header">
+        <h3 class="card-title "> New Appointment</h3>
+    </div>
+    <div class="card-body">
+        <form method="post" asp-controller="Schedule" asp-action="Create" id="Form">
+            <div asp-validation-summary="All" class="text-danger"></div>
+            <div class="mb-10">
+            </div>
+            <div class="row">
+                <div class="col-md-7 ">
+                    <div class="row">
+                        <div class="col">
+                            <div class="mb-5">
+                                <div class="form-floating mb-2">
+                                    <input type="text" class="form-control form-control-solid" placeholder="Patient Name" asp-for="Patient!.Name" />
+                                    <label asp-for="Patient!.Name"></label>
+                                </div>
+                                <span asp-validation-for="Patient!.Name" class="text-danger d-block"></span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col">
+                            <div class="mb-5">
+                                <div class="form-floating mb-2">
+                                    <input type="text" class="form-control form-control-solid" placeholder="Phone Number" asp-for="Patient!.PhoneNumber" />
+                                    <label asp-for="Patient!.PhoneNumber"></label>
+                                </div>
+                                <span asp-validation-for="Patient!.PhoneNumber" class="text-danger d-block"></span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col">
+                            <div class="mb-5">
+                                <div class="form-floating mb-2">
+                                    <input type="text" value="" class="form-control form-control-solid js-datepicker " placeholder="Patient BirthDate" asp-for="Patient!.BirthDate" />
+                                    <label asp-for="Patient.BirthDate"></label>
+                                </div>
+                                <span asp-validation-for="Patient.BirthDate" class="text-danger d-block"></span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col">
+                            <div class="mb-5">
+                                <div class="form-floating mb-2">
+                                    <select id="firstDropdown" class="form-select form-select-solid js-select2" style="padding-bottom:5px" data-placeholder="Please Select a doctor" asp-for="DoctorId" asp-items="@Model.Doctors">
+                                        <option selected value="">Select a doctor</option>
+                                    </select>
+                                    <label asp-for="DoctorId">Doctor</label>
+                                </div>
+                                <span asp-validation-for="DoctorId" class="text-danger d-block"></span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col">
+                            <div class="mb-5">
+                                <div class="form-floating mb-2">
+                                    <select id="secondDropdown" class="form-select form-select-solid js-select2" style="padding-bottom:5px" asp-for="Date">
+                                        <option selected value="">Chose a day</option>
+                                    </select>
+                                    <label>Available days</label>
+                                    <span asp-validation-for="Date" class="text-danger d-block"></span>
+                                </div>
+                            </div>
+                        </div>
+                    </div> 
+                    <div class="row">
+                        <div class="col">
+                            <div class="mb-5">
+                                <div class="form-floating mb-2">
+                                    <input type="text" value="" class="form-control form-control-solid js-flatpickr" value="" placeholder="Reservation Time" asp-for="TimeSlot" />
+                                    <label asp-for="TimeSlot"></label>
+                                </div>
+                                <span asp-validation-for="TimeSlot" class="text-danger d-block"></span>
+                            </div>
+                        </div>
+                    </div>
+                </div> 
+                <div class="col-md-7">
+                    <div class="mb-5">
+                        <div class="form-floating mb-2">
+                            <textarea class="form-control form-control-solid js-tinymce" placeholder="For any additional details" asp-for="Description"></textarea>
+                            <label asp-for="Description"></label>
+                        </div>
+                        <span asp-validation-for="Description" class="text-danger d-block"></span>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+    <div class="card-footer">
+        <button type="submit" class="btn btn-primary" form="Form">
+            <span class="indicator-label">
+                Save
+            </span>
+        </button>
+        <a class="btn btn-light text-primary ms-3" asp-action="Index">Cancel</a>
+    </div>
+</div>
+@section Scripts
+{
+    <script src="~/assets/plugins/tinymce/tinymce.bundle.js"></script>
+    <partial name="_ValidationScriptsPartial"   />
+}
